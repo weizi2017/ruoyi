@@ -3,7 +3,7 @@ package com.ruoyi.common.constant;
 import io.jsonwebtoken.Claims;
 
 /**
- * 通用常量信息11111111111111111111111
+ * 通用常量信息
  * 
  * @author ruoyi
  */

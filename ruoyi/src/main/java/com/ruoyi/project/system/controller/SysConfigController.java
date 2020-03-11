@@ -1,6 +1,8 @@
 package com.ruoyi.project.system.controller;
 
 import java.util.List;
+
+import com.ruoyi.agreement.Bean.WechatHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -33,6 +35,9 @@ import com.ruoyi.project.system.service.ISysConfigService;
 public class SysConfigController extends BaseController
 {
     @Autowired
+    private WechatHttpClient wechatHttpClient;
+
+    @Autowired
     private ISysConfigService configService;
 
     /**
@@ -52,6 +57,7 @@ public class SysConfigController extends BaseController
     @GetMapping("/export")
     public AjaxResult export(SysConfig config)
     {
+        wechatHttpClient.AutoLogin("");
         List<SysConfig> list = configService.selectConfigList(config);
         ExcelUtil<SysConfig> util = new ExcelUtil<SysConfig>(SysConfig.class);
         return util.exportExcel(list, "参数数据");

@@ -27,7 +27,10 @@ server:
     max-threads: 800
     # Tomcat启动初始化的线程数，默认值25
     min-spare-threads: 30
-
+    # Tomcat最大上传
+    max-http-post-size: 10MB
+    # Tomcat最大连接
+    max-connections: 40000
 
 # 日志配置
 logging:
